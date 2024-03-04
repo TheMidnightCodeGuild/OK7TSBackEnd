@@ -25,7 +25,7 @@ const detailsSchema = new mongoose.Schema({
   resumeLink: String
 });
 
-const Details = mongoose.model('Details', detailsSchema);
+const Details = mongoose.model('Details-OK7', detailsSchema);
 
 const uploadDirectory = 'uploads';
 if (!fs.existsSync(uploadDirectory)) {
