@@ -41,12 +41,18 @@ const upload = multer({ storage: storage });
 app.get("/", (req, res) =>{res.json("yo")})
 
 app.post('/api/save-details', upload.single('resume'), async (req, res) => {
+  try
+  {
   const { firstName,lastName,email,mobile,role } = req.body;
   const resumeLink = req.file.path;
   // const newDetails = new Details({ firstName,lastName,email,mobile,role });
   const newDetails = new Details({ firstName,lastName,email,mobile,role,resumeLink });
   await newDetails.save();
   res.json({ message: 'Details saved successfully' });
+  }catch(error)
+  {
+    return res.status(500).json({message: error.message});
+  }
 });
 
 app.post('/get-all',async(req,res) => {
