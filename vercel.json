@@ -1,0 +1,4 @@
+{ "version": 2,
+"buildss": [{ "source": "./index.js", "use": "@vercel/node" }],
+"routes": [{ "source": "/(.*)", "destination": "/" }]
+ }
