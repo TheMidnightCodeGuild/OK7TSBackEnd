@@ -38,6 +38,8 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 
+app.get("/", (req, res) =>{res.json("yo")})
+
 app.post('/api/save-details', upload.single('resume'), async (req, res) => {
   const { firstName,lastName,email,mobile,role } = req.body;
   const resumeLink = req.file.path;
